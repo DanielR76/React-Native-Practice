@@ -1,8 +1,4 @@
-export interface navigationInterface {
-	navigation: navigation;
-	route: object;
-}
-
-interface navigation {
-	navigate(arg: string): void;
-}
+export type navigationParams = {
+	Home: string;
+	Screen: string;
+};

@@ -1,8 +1,10 @@
 import { View, Text, Button } from "react-native";
+import { useNavigation } from "@react-navigation/core";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { screenNames } from "../utilities/consts";
-import { navigationInterface } from "../interfaces/SettingInterface";
 
-export default function HomeScreen({ navigation }: navigationInterface) {
+export default function HomeScreen() {
+	const navigation = useNavigation<NativeStackNavigationProp<any>>();
 	const goToSettingScreen = (): void =>
 		navigation.navigate(screenNames.setting);
 

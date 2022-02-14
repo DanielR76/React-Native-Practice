@@ -1,10 +1,14 @@
 import { NavigationContainer } from "@react-navigation/native";
-import NavigationStack from "./src/navigation/NavigationStack";
+import NativeStackNav from "./src/navigation/NativeStackNav";
+import BottomTabNav from "./src/navigation/BottomTabNav";
+import DrawerNav from "./src/navigation/DrawerNav";
 
 export default function App() {
 	return (
 		<NavigationContainer>
-			<NavigationStack />
+			{/* <NativeStackNav /> */}
+			{/* <BottomTabNav /> */}
+			<DrawerNav />
 		</NavigationContainer>
 	);
 }
