@@ -1,15 +1,17 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import HomeScreen from "../screens/HomeScreen";
-import SettingScreen from "../screens/SettingScreen";
-import { screenNames } from "../utilities/consts";
+import AccountScreen from "../screens/AccountScreen";
+import FavoriteScreen from "../screens/FavoriteScreen";
+import PokedexScreen from "../screens/PokedexScreen";
+import { ScreenNames } from "../utilities/consts";
 
 const Drawer = createDrawerNavigator();
 
 export default function DrawerNav() {
 	return (
 		<Drawer.Navigator>
-			<Drawer.Screen name={screenNames.home} component={HomeScreen} />
-			<Drawer.Screen name={screenNames.setting} component={SettingScreen} />
+			<Drawer.Screen name={ScreenNames.Account} component={AccountScreen} />
+			<Drawer.Screen name={ScreenNames.Favorite} component={FavoriteScreen} />
+			<Drawer.Screen name={ScreenNames.Pokedex} component={PokedexScreen} />
 		</Drawer.Navigator>
 	);
 }

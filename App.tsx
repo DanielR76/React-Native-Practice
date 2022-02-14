@@ -6,9 +6,7 @@ import DrawerNav from "./src/navigation/DrawerNav";
 export default function App() {
 	return (
 		<NavigationContainer>
-			{/* <NativeStackNav /> */}
-			{/* <BottomTabNav /> */}
-			<DrawerNav />
+			<BottomTabNav />
 		</NavigationContainer>
 	);
 }

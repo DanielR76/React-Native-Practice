@@ -1,17 +1,16 @@
 import { View, Text, Button } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { screenNames } from "../utilities/consts";
+import { ScreenNames } from "../utilities/consts";
 
-export default function HomeScreen() {
+export default function FavoriteScreen() {
 	const navigation = useNavigation<NativeStackNavigationProp<any>>();
-	const goToSettingScreen = (): void =>
-		navigation.navigate(screenNames.setting);
+	const goToHomeScreen = (): void => navigation.navigate(ScreenNames.Account);
 
 	return (
 		<View>
-			<Text>Home</Text>
-			<Button onPress={goToSettingScreen} title="Go to settings" />
+			<Text>Setting</Text>
+			<Button onPress={() => goToHomeScreen()} title="Go to Account" />
 		</View>
 	);
 }

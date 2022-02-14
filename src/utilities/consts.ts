@@ -1,9 +1,11 @@
-export enum screenNames {
-	home = "Home",
-	setting = "Setting",
+export enum ScreenNames {
+	Account = "Account",
+	Favorite = "Favorite",
+	Pokedex = "Pokedex",
 }
 
 export type ScreenNamesType = {
-	Home: screenNames.home;
-	Setting: screenNames.setting;
+	Account: ScreenNames.Account;
+	Favorite: ScreenNames.Favorite;
+	Pokedex: ScreenNames.Pokedex;
 };
