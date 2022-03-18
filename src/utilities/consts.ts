@@ -1,3 +1,7 @@
+export enum PathAPI {
+	Url = "https://pokeapi.co/api/v2",
+}
+
 export enum ScreenNames {
 	Account = "Account",
 	Favorite = "Favorite",
