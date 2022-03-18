@@ -18,6 +18,7 @@ export default function BottomTabNav() {
 				component={FavoriteScreen}
 				options={{
 					tabBarLabel: "Favoritos",
+					headerTitle: "Favoritos",
 					tabBarIcon: ({ color, size }) => (
 						<Icon name="heart" color={color} size={size} />
 					),
@@ -27,7 +28,8 @@ export default function BottomTabNav() {
 				name={ScreenNames.Pokedex}
 				component={PokedexScreen}
 				options={{
-					tabBarLabel: "PokeBolas",
+					tabBarLabel: "",
+					headerTitle: "PokeBolas",
 					tabBarIcon: () => (
 						<Image
 							source={require("../../assets/pokeball.png")}
@@ -41,6 +43,7 @@ export default function BottomTabNav() {
 				component={AccountScreen}
 				options={{
 					tabBarLabel: "Mi cuenta",
+					headerTitle: "Mi cuenta",
 					tabBarIcon: ({ color, size }) => (
 						<Icon name="user" color={color} size={size} />
 					),
