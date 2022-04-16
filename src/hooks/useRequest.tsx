@@ -9,7 +9,7 @@ export const useRequest = () => {
 			const value = await response.json();
 			return value;
 		} catch (error) {
-			throw error;
+			return error;
 		}
 
 		// return fetch(endPoint)

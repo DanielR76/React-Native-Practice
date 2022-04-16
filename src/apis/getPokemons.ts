@@ -1,28 +1,20 @@
-import { useEffect, useState } from "react";
 import { useRequest } from "../hooks/useRequest";
 
-type InitData = {
-	data: Array<any>;
-	isLoading: boolean;
-};
-
-const initialData: InitData = {
-	data: [],
-	isLoading: true,
-};
-
-export const PokemonsRequest = () => {
+const PokemonsRequest = () => {
 	const getService = useRequest();
 
-	const [listOfPokemons, setListOfPokemons] = useState(initialData);
-
-	const getPokemons = () => {
-		getService("/pokemon/ditto")
-			.then((resp) =>
-				setListOfPokemons({ ...listOfPokemons, data: resp, isLoading: false })
-			)
-			.catch(() => setListOfPokemons({ ...initialData, isLoading: false }));
+	const getPokemons = (limit: number) => {
+		return getService(`/pokemon?limit=${limit}&offset=200`);
 	};
 
-	return { getPokemons, listOfPokemons };
+	const getPokemonsById = (url: string) => {
+		return fetch(url);
+	};
+
+	return {
+		getPokemons,
+		getPokemonsById,
+	};
 };
+
+export default PokemonsRequest;
