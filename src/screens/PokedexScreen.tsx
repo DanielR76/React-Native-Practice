@@ -1,18 +1,12 @@
 import { useState, useEffect } from "react";
-import { SafeAreaView, Text } from "react-native";
+import { SafeAreaView } from "react-native";
+
+import { PokeList } from "../components";
 import PokemonsRequest from "../apis/getPokemons";
 
 type InitData = {
 	data: any;
 	isLoading: boolean;
-};
-
-type PokeData = {
-	id: string;
-	name: string;
-	type: string;
-	order: string;
-	image: string;
 };
 
 const initialData: InitData = {
@@ -25,6 +19,10 @@ export default function PokedexScreen() {
 	const [listOfPokemonsById, setListOfPokemonsById] = useState<PokeData[]>([]);
 
 	useEffect(() => {
+		requestPokemos();
+	}, []);
+
+	const requestPokemos = () => {
 		setListOfPokemons({ ...initialData, isLoading: true });
 		PokemonsRequest()
 			.getPokemons(20)
@@ -39,17 +37,16 @@ export default function PokedexScreen() {
 				}
 			})
 			.catch(() => setListOfPokemons(initialData));
-	}, []);
+	};
 
 	const requestById = async (resp: any) => {
 		const arrayPoke: PokeData[] = [];
 
 		for await (const pokemon of resp) {
 			const valPoke = pokemon?.url?.split("/")?.[6];
-			PokemonsRequest()
+			await PokemonsRequest()
 				.getPokemonById(valPoke)
 				.then((pokeDetails: any) => {
-					// console.log(pokeDetails);
 					arrayPoke.push({
 						id: pokeDetails?.id,
 						name: pokeDetails?.name,
@@ -58,7 +55,6 @@ export default function PokedexScreen() {
 						image:
 							pokeDetails?.sprites?.other?.["official-artwork"]?.front_default,
 					});
-					// console.log(arrayPoke);
 				})
 				.catch((e) => console.log(e));
 		}
@@ -66,15 +62,9 @@ export default function PokedexScreen() {
 		setListOfPokemonsById([...arrayPoke]);
 	};
 
-	console.log(listOfPokemonsById);
-
 	return (
 		<SafeAreaView>
-			<Text>Holis</Text>
-			<Text>PokedexScreen</Text>
-			{listOfPokemons.data?.results?.map((poke: any, index: number) => (
-				<Text key={index}>{poke.name}</Text>
-			))}
+			<PokeList pokemons={listOfPokemonsById} />
 		</SafeAreaView>
 	);
 }

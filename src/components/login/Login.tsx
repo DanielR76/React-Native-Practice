@@ -1,11 +1,11 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text } from "react-native";
 
 import tw from "twrnc";
 
-import { TextStyled, ViewStyled } from "../styles/Login.styled";
+import { TextStyled, ViewStyled } from "./Login.styled";
 
-export default function Login() {
+export function Login() {
 	return (
 		<ViewStyled>
 			<TextStyled>Holi</TextStyled>
@@ -13,3 +13,5 @@ export default function Login() {
 		</ViewStyled>
 	);
 }
+
+export default Login;
