@@ -7,13 +7,13 @@ const PokemonsRequest = () => {
 		return getService(`/pokemon?limit=${limit}&offset=200`);
 	};
 
-	const getPokemonsById = (url: string) => {
-		return fetch(url);
+	const getPokemonById = (number: number) => {
+		return getService(`/pokemon/${number}/`);
 	};
 
 	return {
 		getPokemons,
-		getPokemonsById,
+		getPokemonById,
 	};
 };
 

@@ -6,15 +6,10 @@ export const useRequest = () => {
 
 		try {
 			const response = await fetch(endPoint);
-			const value = await response.json();
-			return value;
+			return await response.json();
 		} catch (error) {
 			return error;
 		}
-
-		// return fetch(endPoint)
-		// 	.then((response) => response.json())
-		// 	.catch((e) => console.error(e));
 	};
 
 	return getService;

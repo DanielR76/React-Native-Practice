@@ -17,49 +17,60 @@ type PokeData = {
 
 const initialData: InitData = {
 	data: {},
-	isLoading: true,
+	isLoading: false,
 };
 
 export default function PokedexScreen() {
 	const [listOfPokemons, setListOfPokemons] = useState(initialData);
-	const [listOfPokemonsById, setListOfPokemonsById] = useState([]);
+	const [listOfPokemonsById, setListOfPokemonsById] = useState<PokeData[]>([]);
 
 	useEffect(() => {
+		setListOfPokemons({ ...initialData, isLoading: true });
 		PokemonsRequest()
 			.getPokemons(20)
 			.then((resp) => {
-				// requestById(resp);
-				setListOfPokemons({ ...listOfPokemons, data: resp, isLoading: false });
+				if (resp) {
+					setListOfPokemons({
+						...listOfPokemons,
+						data: resp,
+						isLoading: false,
+					});
+					requestById(resp?.results);
+				}
 			})
-			.catch(() => setListOfPokemons({ ...initialData, isLoading: false }));
+			.catch(() => setListOfPokemons(initialData));
 	}, []);
 
 	const requestById = async (resp: any) => {
-		const arrayPoke: any = [];
+		const arrayPoke: PokeData[] = [];
 
-		for await (const pokemon of resp.results) {
-			// console.log(pokemon.url);
-			fetch(pokemon.url)
+		for await (const pokemon of resp) {
+			const valPoke = pokemon?.url?.split("/")?.[6];
+			PokemonsRequest()
+				.getPokemonById(valPoke)
 				.then((pokeDetails: any) => {
-					console.log(pokeDetails);
+					// console.log(pokeDetails);
 					arrayPoke.push({
 						id: pokeDetails?.id,
 						name: pokeDetails?.name,
-						// type: pokeDetails?.types[0]?.type.name,
+						type: pokeDetails?.types?.[0]?.type?.name,
 						order: pokeDetails?.order,
 						image:
-							pokeDetails?.sprites?.other["official-artwork"].front_default,
+							pokeDetails?.sprites?.other?.["official-artwork"]?.front_default,
 					});
 					// console.log(arrayPoke);
 				})
 				.catch((e) => console.log(e));
 		}
 
-		// setListOfPokemonsById([...listOfPokemonsById, ...arrayPoke]);
+		setListOfPokemonsById([...arrayPoke]);
 	};
+
+	console.log(listOfPokemonsById);
 
 	return (
 		<SafeAreaView>
+			<Text>Holis</Text>
 			<Text>PokedexScreen</Text>
 			{listOfPokemons.data?.results?.map((poke: any, index: number) => (
 				<Text key={index}>{poke.name}</Text>
