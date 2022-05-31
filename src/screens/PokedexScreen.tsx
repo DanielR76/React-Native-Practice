@@ -17,15 +17,16 @@ const initialData: InitData = {
 export default function PokedexScreen() {
 	const [listOfPokemons, setListOfPokemons] = useState(initialData);
 	const [listOfPokemonsById, setListOfPokemonsById] = useState<PokeData[]>([]);
+	const [counter, setCounter] = useState(0);
 
 	useEffect(() => {
-		requestPokemos();
+		requestPokemons();
 	}, []);
 
-	const requestPokemos = () => {
+	const requestPokemons = () => {
 		setListOfPokemons({ ...initialData, isLoading: true });
 		PokemonsRequest()
-			.getPokemons(20)
+			.getPokemons(counter)
 			.then((resp) => {
 				if (resp) {
 					setListOfPokemons({
@@ -33,13 +34,14 @@ export default function PokedexScreen() {
 						data: resp,
 						isLoading: false,
 					});
-					requestById(resp?.results);
+					requestPokemonById(resp?.results);
+					setCounter(counter + 1);
 				}
 			})
 			.catch(() => setListOfPokemons(initialData));
 	};
 
-	const requestById = async (resp: any) => {
+	const requestPokemonById = async (resp: any) => {
 		const arrayPoke: PokeData[] = [];
 
 		for await (const pokemon of resp) {
@@ -56,15 +58,15 @@ export default function PokedexScreen() {
 							pokeDetails?.sprites?.other?.["official-artwork"]?.front_default,
 					});
 				})
-				.catch((e) => console.log(e));
+				.catch(console.log);
 		}
 
-		setListOfPokemonsById([...arrayPoke]);
+		setListOfPokemonsById([...listOfPokemonsById, ...arrayPoke]);
 	};
 
 	return (
 		<SafeAreaView>
-			<PokeList pokemons={listOfPokemonsById} />
+			<PokeList pokemons={listOfPokemonsById} getPokemons={requestPokemons} />
 		</SafeAreaView>
 	);
 }

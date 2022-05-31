@@ -3,8 +3,8 @@ import { useRequest } from "../hooks/useRequest";
 const PokemonsRequest = () => {
 	const getService = useRequest();
 
-	const getPokemons = (limit: number) => {
-		return getService(`/pokemon?limit=${limit}&offset=200`);
+	const getPokemons = (offset: number, limit: number = 20) => {
+		return getService(`/pokemon?limit=${limit}&offset=${limit * offset}`);
 	};
 
 	const getPokemonById = (number: number) => {

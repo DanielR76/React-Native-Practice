@@ -1,17 +1,35 @@
-import { FlatList } from "react-native";
+import { FlatList, ActivityIndicator } from "react-native";
 import React from "react";
 
 import { PokemonCard } from "../pokemonCard/PokemonCard";
 // import { FlatListStyled } from "./PokeList.styled";
 
-export const PokeList = ({ pokemons }: { pokemons: PokeData[] }) => {
+interface Props {
+	pokemons: PokeData[];
+	getPokemons: () => void;
+}
+
+export const PokeList = ({ pokemons, getPokemons }: Props) => {
+	const getPokemonRequest = () => {
+		getPokemons();
+	};
+
 	return (
 		<FlatList
 			data={pokemons}
 			renderItem={({ item }) => <PokemonCard pokemon={item} />}
-			keyExtractor={(item) => String(item.id)}
+			keyExtractor={(item) => String(item?.id)}
 			numColumns={2}
 			showsVerticalScrollIndicator={false}
+			onEndReached={getPokemonRequest}
+			onEndReachedThreshold={0.1}
+			ListFooterComponent={
+				<ActivityIndicator
+					size="large"
+					color="#629460"
+					style={{ marginBottom: 60, marginTop: 20 }}
+				/>
+			}
 		/>
 	);
 };

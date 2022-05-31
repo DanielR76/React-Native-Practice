@@ -1,4 +1,4 @@
-export enum PathAPI {
+export enum BaseUrlApi {
 	Url = "https://pokeapi.co/api/v2",
 }
 
