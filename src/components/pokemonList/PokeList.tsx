@@ -1,8 +1,8 @@
-import { FlatList, Text } from "react-native";
+import { FlatList } from "react-native";
 import React from "react";
 
 import { PokemonCard } from "../pokemonCard/PokemonCard";
-import { FlatListStyled } from "./PokeList.styled";
+// import { FlatListStyled } from "./PokeList.styled";
 
 export const PokeList = ({ pokemons }: { pokemons: PokeData[] }) => {
 	return (
