@@ -8,7 +8,7 @@ export const CardStyled = styled.View`
 export const SpacingStyled = styled.View`
 	flex: 1;
 	margin: 5px;
-	background-color: #b6a4a0;
+	background-color: ${({ bg }) => bg};
 	border-radius: 5px;
 `;
 
