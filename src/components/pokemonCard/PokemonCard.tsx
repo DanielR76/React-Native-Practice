@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, FC } from "react";
 import { TouchableWithoutFeedback } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -13,24 +13,29 @@ import {
 import { getColorPokemon } from "../../utilities/convertFunctions";
 import { ScreenNames } from "../../utilities/consts";
 
-export const PokemonCard = ({ pokemon }: { pokemon: PokeData }) => {
+interface Props {
+	pokemon: PokeData;
+}
+
+export const PokemonCard: FC<Props> = ({ pokemon }) => {
 	const navigation = useNavigation<NativeStackNavigationProp<any>>();
 
 	const goToSettingScreen = (): void =>
-		navigation.navigate(ScreenNames.Pokemon);
+		navigation.navigate(ScreenNames.Pokemon, {
+			id: pokemon?.id,
+		});
 
 	const handlePress = () => {
-		console.log(pokemon.name);
 		goToSettingScreen();
 	};
 
 	return (
 		<TouchableWithoutFeedback onPress={handlePress}>
 			<CardStyled>
-				<SpacingStyled bg={getColorPokemon(pokemon.type)}>
-					<NumberStyled>{`# ${pokemon.order}`}</NumberStyled>
-					<NameStyled>{pokemon.name}</NameStyled>
-					<ImageStyled source={{ uri: pokemon.image }}></ImageStyled>
+				<SpacingStyled bg={getColorPokemon(pokemon?.type)}>
+					<NumberStyled>{`# ${pokemon?.order}`}</NumberStyled>
+					<NameStyled>{pokemon?.name}</NameStyled>
+					<ImageStyled source={{ uri: pokemon?.image }}></ImageStyled>
 				</SpacingStyled>
 			</CardStyled>
 		</TouchableWithoutFeedback>

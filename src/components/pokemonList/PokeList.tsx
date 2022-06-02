@@ -1,5 +1,5 @@
 import { FlatList, ActivityIndicator } from "react-native";
-import React from "react";
+import { memo, FC } from "react";
 
 import { PokemonCard } from "../pokemonCard/PokemonCard";
 // import { FlatListStyled } from "./PokeList.styled";
@@ -9,7 +9,7 @@ interface Props {
 	getPokemons: () => void;
 }
 
-export const PokeList = ({ pokemons, getPokemons }: Props) => {
+export const PokeList: FC<Props> = ({ pokemons, getPokemons }) => {
 	const getPokemonRequest = () => {
 		getPokemons();
 	};
@@ -34,4 +34,4 @@ export const PokeList = ({ pokemons, getPokemons }: Props) => {
 	);
 };
 
-export default React.memo(PokeList);
+export default memo(PokeList);
