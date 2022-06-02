@@ -17,7 +17,7 @@ export const PokemonCard = ({ pokemon }: { pokemon: PokeData }) => {
 	const navigation = useNavigation<NativeStackNavigationProp<any>>();
 
 	const goToSettingScreen = (): void =>
-		navigation.navigate(ScreenNames.Account);
+		navigation.navigate(ScreenNames.Pokemon);
 
 	const handlePress = () => {
 		console.log(pokemon.name);

@@ -1,10 +1,9 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Image } from "react-native";
 
-import AccountScreen from "../screens/AccountScreen";
-import FavoriteScreen from "../screens/FavoriteScreen";
-// import PokedexScreen from "../screens/PokedexScreen";
+import FavoriteStackNav from "./stacks/FavoriteStackNav";
 import PokedexStackNav from "./stacks/PokedexStackNav";
+import AccountStackNav from "./stacks/AccountStackNav";
 
 import Icon from "react-native-vector-icons/FontAwesome5";
 import { ScreenNames } from "../utilities/consts";
@@ -13,13 +12,15 @@ const BottomTab = createBottomTabNavigator();
 
 export default function BottomTabNav() {
 	return (
-		<BottomTab.Navigator initialRouteName={ScreenNames.Account}>
+		<BottomTab.Navigator
+			initialRouteName={ScreenNames.Pokedex}
+			screenOptions={{ headerShown: false }}
+		>
 			<BottomTab.Screen
 				name={ScreenNames.Favorite}
-				component={FavoriteScreen}
+				component={FavoriteStackNav}
 				options={{
 					tabBarLabel: "Favoritos",
-					headerTitle: "Favoritos",
 					tabBarIcon: ({ color, size }) => (
 						<Icon name="heart" color={color} size={size} />
 					),
@@ -29,8 +30,7 @@ export default function BottomTabNav() {
 				name={ScreenNames.Pokedex}
 				component={PokedexStackNav}
 				options={{
-					tabBarLabel: "",
-					headerTitle: "PokeBolas",
+					tabBarLabel: "Pokedex",
 					tabBarIcon: () => (
 						<Image
 							source={require("../../assets/pokeball.png")}
@@ -41,10 +41,9 @@ export default function BottomTabNav() {
 			/>
 			<BottomTab.Screen
 				name={ScreenNames.Account}
-				component={AccountScreen}
+				component={AccountStackNav}
 				options={{
-					tabBarLabel: "Mi cuenta",
-					headerTitle: "Mi cuenta",
+					tabBarLabel: "Cuenta",
 					tabBarIcon: ({ color, size }) => (
 						<Icon name="user" color={color} size={size} />
 					),
