@@ -4,9 +4,12 @@ export enum BaseUrlApi {
 
 export enum ScreenNames {
 	Account = "Account",
+	Profile = "Profile",
 	Favorite = "Favorite",
+	FavoriteList = "FavoriteList",
 	Pokedex = "Pokedex",
 	Pokemon = "Pokemon",
+	PokemonList = "PokemonList",
 }
 
 export type ScreenNamesType = {

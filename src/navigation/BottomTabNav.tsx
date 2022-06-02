@@ -13,7 +13,7 @@ const BottomTab = createBottomTabNavigator();
 export default function BottomTabNav() {
 	return (
 		<BottomTab.Navigator
-			initialRouteName={ScreenNames.Pokedex}
+			initialRouteName={ScreenNames.Favorite}
 			screenOptions={{ headerShown: false }}
 		>
 			<BottomTab.Screen

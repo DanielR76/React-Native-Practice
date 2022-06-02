@@ -9,9 +9,9 @@ export default function AccountStackNav() {
 	return (
 		<Stack.Navigator>
 			<Stack.Screen
-				name={ScreenNames.Account}
+				name={ScreenNames.Profile}
 				component={AccountScreen}
-				options={{ title: "Cuenta" }}
+				options={{ title: "Perfil" }}
 			/>
 		</Stack.Navigator>
 	);
