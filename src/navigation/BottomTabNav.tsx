@@ -3,7 +3,8 @@ import { Image } from "react-native";
 
 import AccountScreen from "../screens/AccountScreen";
 import FavoriteScreen from "../screens/FavoriteScreen";
-import PokedexScreen from "../screens/PokedexScreen";
+// import PokedexScreen from "../screens/PokedexScreen";
+import PokedexStackNav from "./stacks/PokedexStackNav";
 
 import Icon from "react-native-vector-icons/FontAwesome5";
 import { ScreenNames } from "../utilities/consts";
@@ -26,7 +27,7 @@ export default function BottomTabNav() {
 			/>
 			<BottomTab.Screen
 				name={ScreenNames.Pokedex}
-				component={PokedexScreen}
+				component={PokedexStackNav}
 				options={{
 					tabBarLabel: "",
 					headerTitle: "PokeBolas",

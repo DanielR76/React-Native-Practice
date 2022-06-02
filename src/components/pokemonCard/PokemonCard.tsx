@@ -1,5 +1,7 @@
+import { memo } from "react";
 import { TouchableWithoutFeedback } from "react-native";
-import React from "react";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import {
 	CardStyled,
@@ -9,10 +11,17 @@ import {
 	ImageStyled,
 } from "./Card.styled";
 import { getColorPokemon } from "../../utilities/convertFunctions";
+import { ScreenNames } from "../../utilities/consts";
 
 export const PokemonCard = ({ pokemon }: { pokemon: PokeData }) => {
+	const navigation = useNavigation<NativeStackNavigationProp<any>>();
+
+	const goToSettingScreen = (): void =>
+		navigation.navigate(ScreenNames.Account);
+
 	const handlePress = () => {
 		console.log(pokemon.name);
+		goToSettingScreen();
 	};
 
 	return (
@@ -28,4 +37,4 @@ export const PokemonCard = ({ pokemon }: { pokemon: PokeData }) => {
 	);
 };
 
-export default React.memo(PokemonCard);
+export default memo(PokemonCard);

@@ -6,12 +6,14 @@ export enum ScreenNames {
 	Account = "Account",
 	Favorite = "Favorite",
 	Pokedex = "Pokedex",
+	Pokemon = "Pokemon",
 }
 
 export type ScreenNamesType = {
 	Account: ScreenNames.Account;
 	Favorite: ScreenNames.Favorite;
 	Pokedex: ScreenNames.Pokedex;
+	Pokemon: ScreenNames.Pokemon;
 };
 
 export enum ColorsPokemon {
