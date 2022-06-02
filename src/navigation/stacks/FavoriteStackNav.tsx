@@ -1,11 +1,11 @@
 import { createStackNavigator } from "@react-navigation/stack";
 
-import FavoriteScreen from "../../screens/FavoriteScreen";
+import { FavoriteScreen } from "../../screens";
 import { ScreenNames } from "../../utilities/consts";
 
 const Stack = createStackNavigator();
 
-export default function FavoriteStackNav() {
+export function FavoriteStackNav() {
 	return (
 		<Stack.Navigator>
 			<Stack.Screen
@@ -16,3 +16,5 @@ export default function FavoriteStackNav() {
 		</Stack.Navigator>
 	);
 }
+
+export default FavoriteStackNav;

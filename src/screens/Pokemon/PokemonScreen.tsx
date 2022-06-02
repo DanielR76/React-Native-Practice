@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
-import { View, Text } from "react-native";
+import { View, ScrollView } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/core";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import type { RouteProp } from "@react-navigation/native";
 
-import PokemonsRequest from "../apis/getPokemons";
+import { HeaderPokemon } from "./components/HeaderPokemon";
+import PokemonsRequest from "../../apis/getPokemons";
 
-export default function PokemonScreen() {
+export function PokemonScreen() {
 	// const navigation = useNavigation<NativeStackNavigationProp<any>>();
 	const route = useRoute<RouteProp<any>>();
 	const { getPokemonById } = PokemonsRequest();
@@ -20,8 +21,10 @@ export default function PokemonScreen() {
 	}, []);
 
 	return (
-		<View>
-			<Text>PokemonScreen</Text>
-		</View>
+		<ScrollView>
+			<HeaderPokemon />
+		</ScrollView>
 	);
 }
+
+export default PokemonScreen;

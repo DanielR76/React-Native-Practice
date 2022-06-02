@@ -1,16 +1,13 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Image } from "react-native";
-
-import FavoriteStackNav from "./stacks/FavoriteStackNav";
-import PokedexStackNav from "./stacks/PokedexStackNav";
-import AccountStackNav from "./stacks/AccountStackNav";
-
 import Icon from "react-native-vector-icons/FontAwesome5";
+
+import { FavoriteStackNav, PokedexStackNav, AccountStackNav } from "./stacks";
 import { ScreenNames } from "../utilities/consts";
 
 const BottomTab = createBottomTabNavigator();
 
-export default function BottomTabNav() {
+export function BottomTabNav() {
 	return (
 		<BottomTab.Navigator
 			initialRouteName={ScreenNames.Favorite}
@@ -52,3 +49,5 @@ export default function BottomTabNav() {
 		</BottomTab.Navigator>
 	);
 }
+
+export default BottomTabNav;

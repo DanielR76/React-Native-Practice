@@ -1,9 +1,9 @@
 import { View, Text, Button } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { ScreenNames } from "../utilities/consts";
+import { ScreenNames } from "../../utilities/consts";
 
-export default function AccountScreen() {
+export function AccountScreen() {
 	const navigation = useNavigation<NativeStackNavigationProp<any>>();
 	const goToSettingScreen = (): void =>
 		navigation.navigate(ScreenNames.Favorite);
@@ -16,3 +16,5 @@ export default function AccountScreen() {
 		</View>
 	);
 }
+
+export default AccountScreen;

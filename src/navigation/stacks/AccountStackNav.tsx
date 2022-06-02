@@ -1,11 +1,11 @@
 import { createStackNavigator } from "@react-navigation/stack";
 
-import AccountScreen from "../../screens/AccountScreen";
+import { AccountScreen } from "../../screens";
 import { ScreenNames } from "../../utilities/consts";
 
 const Stack = createStackNavigator();
 
-export default function AccountStackNav() {
+export function AccountStackNav() {
 	return (
 		<Stack.Navigator>
 			<Stack.Screen
@@ -16,3 +16,5 @@ export default function AccountStackNav() {
 		</Stack.Navigator>
 	);
 }
+
+export default AccountStackNav;

@@ -1,12 +1,11 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import AccountScreen from "../screens/AccountScreen";
-import FavoriteScreen from "../screens/FavoriteScreen";
-import PokedexScreen from "../screens/PokedexScreen";
+
+import { AccountScreen, FavoriteScreen, PokedexScreen } from "../screens";
 import { ScreenNames } from "../utilities/consts";
 
 const Drawer = createDrawerNavigator();
 
-export default function DrawerNav() {
+export function DrawerNav() {
 	return (
 		<Drawer.Navigator>
 			<Drawer.Screen name={ScreenNames.Account} component={AccountScreen} />
@@ -15,3 +14,5 @@ export default function DrawerNav() {
 		</Drawer.Navigator>
 	);
 }
+
+export default DrawerNav;

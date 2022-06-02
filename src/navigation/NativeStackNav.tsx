@@ -1,13 +1,11 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import AccountScreen from "../screens/AccountScreen";
-import FavoriteScreen from "../screens/FavoriteScreen";
-import PokedexScreen from "../screens/PokedexScreen";
+import { AccountScreen, FavoriteScreen, PokedexScreen } from "../screens";
 import { ScreenNames } from "../utilities/consts";
 
 const Stack = createNativeStackNavigator();
 
-export default function NativeStackNav() {
+export function NativeStackNav() {
 	return (
 		<Stack.Navigator initialRouteName={ScreenNames.Pokedex}>
 			<Stack.Screen name={ScreenNames.Account} component={AccountScreen} />
@@ -16,3 +14,5 @@ export default function NativeStackNav() {
 		</Stack.Navigator>
 	);
 }
+
+export default NativeStackNav;

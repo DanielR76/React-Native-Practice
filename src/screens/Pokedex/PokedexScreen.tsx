@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native";
 
-import { PokeList } from "../components";
-import PokemonsRequest from "../apis/getPokemons";
+import { PokeList } from "../../components";
+import PokemonsRequest from "../../apis/getPokemons";
 
 type InitData = {
 	data: any;
@@ -14,7 +14,7 @@ const initialData: InitData = {
 	isLoading: false,
 };
 
-export default function PokedexScreen() {
+export function PokedexScreen() {
 	const [listOfPokemons, setListOfPokemons] = useState(initialData);
 	const [listOfPokemonsById, setListOfPokemonsById] = useState<PokeData[]>([]);
 	const [counter, setCounter] = useState(0);
@@ -70,3 +70,5 @@ export default function PokedexScreen() {
 		</SafeAreaView>
 	);
 }
+
+export default PokedexScreen;
