@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { View, ScrollView } from "react-native";
+import { ScrollView } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/core";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import type { RouteProp } from "@react-navigation/native";
@@ -16,13 +16,20 @@ export function PokemonScreen() {
 
 	useEffect(() => {
 		getPokemonById(route.params?.id)
-			.then((response) => setPokemon(response))
+			.then((response) => response.name && setPokemon(response))
 			.catch(console.log);
 	}, []);
 
+	if (!pokemon) return null;
+
 	return (
 		<ScrollView>
-			<HeaderPokemon />
+			<HeaderPokemon
+				name={pokemon?.name}
+				order={pokemon?.order}
+				image={pokemon?.sprites?.other?.["official-artwork"]?.front_default}
+				type={pokemon?.types?.[0]?.type?.name}
+			/>
 		</ScrollView>
 	);
 }
