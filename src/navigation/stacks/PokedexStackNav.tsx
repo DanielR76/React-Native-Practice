@@ -9,7 +9,11 @@ export function PokedexStackNav() {
 	return (
 		<Stack.Navigator>
 			<Stack.Screen name={ScreenNames.PokemonList} component={PokedexScreen} />
-			<Stack.Screen name={ScreenNames.Pokemon} component={PokemonScreen} />
+			<Stack.Screen
+				name={ScreenNames.Pokemon}
+				component={PokemonScreen}
+				options={{ headerTransparent: true }}
+			/>
 		</Stack.Navigator>
 	);
 }

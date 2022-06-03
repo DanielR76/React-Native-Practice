@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ScrollView } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/core";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+// import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import type { RouteProp } from "@react-navigation/native";
 
 import { HeaderPokemon } from "./components/HeaderPokemon";

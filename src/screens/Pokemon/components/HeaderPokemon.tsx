@@ -25,7 +25,7 @@ export const HeaderPokemon: FC<Props> = ({ name, order, image, type }) => {
 			<ContentStyled>
 				<HeaderStyled>
 					<NameStyled>{name}</NameStyled>
-					<OrderStyled>#{`${order}`.padStart(3, 0)}</OrderStyled>
+					<OrderStyled>#{order}</OrderStyled>
 				</HeaderStyled>
 				<ContentImageStyled>
 					<ImageStyle resizeMode="contain" source={{ uri: image }} />
