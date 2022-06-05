@@ -9,7 +9,6 @@ interface Props {
 }
 
 export const ItemPokemon: FC<Props> = ({ types }) => {
-	console.log(types);
 	return (
 		<ContentStyled>
 			{types.map((element: any, index: number) => (

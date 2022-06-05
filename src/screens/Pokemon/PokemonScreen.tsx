@@ -4,7 +4,7 @@ import { useNavigation, useRoute } from "@react-navigation/core";
 // import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import type { RouteProp } from "@react-navigation/native";
 
-import { HeaderPokemon, ItemPokemon } from "./components";
+import { HeaderPokemon, ItemPokemon, StatsPokemon } from "./components";
 import PokemonsRequest from "../../apis/getPokemons";
 
 export function PokemonScreen() {
@@ -31,6 +31,7 @@ export function PokemonScreen() {
 				type={pokemon?.types?.[0]?.type?.name}
 			/>
 			<ItemPokemon types={pokemon?.types} />
+			<StatsPokemon stats={pokemon?.stats} />
 		</ScrollView>
 	);
 }
