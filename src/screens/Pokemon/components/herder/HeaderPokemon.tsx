@@ -1,5 +1,5 @@
 import { memo, FC } from "react";
-import { getColorPokemon } from "../../../utilities";
+import { getColorPokemon } from "../../../../utilities";
 
 import {
 	BgStyled,

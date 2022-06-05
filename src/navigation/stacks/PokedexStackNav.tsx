@@ -12,7 +12,7 @@ export function PokedexStackNav() {
 			<Stack.Screen
 				name={ScreenNames.Pokemon}
 				component={PokemonScreen}
-				options={{ headerTransparent: true }}
+				options={{ headerTransparent: true, headerTitle: "" }}
 			/>
 		</Stack.Navigator>
 	);

@@ -4,7 +4,7 @@ import { useNavigation, useRoute } from "@react-navigation/core";
 // import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import type { RouteProp } from "@react-navigation/native";
 
-import { HeaderPokemon } from "./components/HeaderPokemon";
+import { HeaderPokemon, ItemPokemon } from "./components";
 import PokemonsRequest from "../../apis/getPokemons";
 
 export function PokemonScreen() {
@@ -30,6 +30,7 @@ export function PokemonScreen() {
 				image={pokemon?.sprites?.other?.["official-artwork"]?.front_default}
 				type={pokemon?.types?.[0]?.type?.name}
 			/>
+			<ItemPokemon types={pokemon?.types} />
 		</ScrollView>
 	);
 }
