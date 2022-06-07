@@ -1,6 +1,10 @@
 import styled from "styled-components/native";
 
-export const BgStyled = styled.View`
+interface BgStyledProps {
+	bg: string;
+}
+
+export const BgStyled = styled.View<BgStyledProps>`
 	position: absolute;
 	width: 100%;
 	height: 400px;

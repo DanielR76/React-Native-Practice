@@ -1,5 +1,10 @@
 import styled from "styled-components/native";
 
+interface BarStyledProps {
+	bg: string;
+	width: string;
+}
+
 export const ContentStyled = styled.View`
 	padding: 0px 20px;
 	margin: 20px 0 60px 0;
@@ -44,7 +49,7 @@ export const BgBarStyled = styled.View`
 	overflow: hidden;
 `;
 
-export const BarStyled = styled.View`
+export const BarStyled = styled.View<BarStyledProps>`
 	height: 10px;
 	border-radius: 20px;
 	background-color: ${({ bg }) => bg};

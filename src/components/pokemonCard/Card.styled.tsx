@@ -1,11 +1,15 @@
 import styled from "styled-components/native";
 
+interface SpacingStyledProps {
+	bg: string;
+}
+
 export const CardStyled = styled.View`
 	flex: 1;
 	height: 130px;
 `;
 
-export const SpacingStyled = styled.View`
+export const SpacingStyled = styled.View<SpacingStyledProps>`
 	flex: 1;
 	margin: 5px;
 	background-color: ${({ bg }) => bg};
