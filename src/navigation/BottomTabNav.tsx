@@ -11,7 +11,7 @@ export function BottomTabNav() {
 	return (
 		<BottomTab.Navigator
 			initialRouteName={ScreenNames.Favorite}
-			screenOptions={{ headerShown: false }}
+			screenOptions={{ headerShown: false, tabBarHideOnKeyboard: true }}
 		>
 			<BottomTab.Screen
 				name={ScreenNames.Favorite}

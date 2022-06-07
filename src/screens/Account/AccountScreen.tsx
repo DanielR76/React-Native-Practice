@@ -1,6 +1,8 @@
-import { View, Text, Button } from "react-native";
+import { SafeAreaView, Text, Button } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
+import { UserData, Loginform } from "./components";
 import { ScreenNames } from "../../utilities/consts";
 
 export function AccountScreen() {
@@ -8,12 +10,14 @@ export function AccountScreen() {
 	const goToSettingScreen = (): void =>
 		navigation.navigate(ScreenNames.Favorite);
 
-	return (
-		<View>
-			<Text>Home</Text>
+	const user = null;
 
-			<Button onPress={goToSettingScreen} title="Go to Favorites" />
-		</View>
+	return (
+		<SafeAreaView>
+			{user ? <UserData /> : <Loginform />}
+
+			{/* <Button onPress={goToSettingScreen} title="Go to Favorites" /> */}
+		</SafeAreaView>
 	);
 }
 
