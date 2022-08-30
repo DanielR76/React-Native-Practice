@@ -1,25 +1,33 @@
 import { memo, FC } from "react";
-import { View, Text, TextInput, Button } from "react-native";
+import { View, Text } from "react-native";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
+import { user, userDetail } from "../../../../utilities";
 import { TitleStyled, UserInputStyled, ButtonStyled } from "./Loginform.styled";
 
+const initialValues: UserDataType = {
+	user: "",
+	pass: "",
+};
+
 export const Loginform: FC = () => {
-	const initialValues = {
-		user: "",
-		pass: "",
-	};
 	const validationYup = {
-		user: Yup.string().required("El usuario es requerido"),
-		pass: Yup.string().required("La constraseña es requerida"),
+		username: Yup.string().required("El usuario es requerido"),
+		password: Yup.string().required("La constraseña es requerida"),
 	};
+
 	const formik = useFormik({
 		initialValues,
 		validationSchema: Yup.object(validationYup),
 		validateOnChange: false,
-		onSubmit: () => console.log("clicked here"),
+		onSubmit: ({pass, user}) => {
+			console.log(pass, 'pass')
+			console.log(user, 'user')
+			// console.log("clicked here");
+		},
 	});
+
 	return (
 		<View>
 			<TitleStyled>Iniciar sesión</TitleStyled>
@@ -38,7 +46,7 @@ export const Loginform: FC = () => {
 				onChangeText={(text) => formik.setFieldValue("pass", text)}
 			/>
 			<Text>{formik.errors.pass}</Text>
-			<ButtonStyled title="Aceptar" onPress={formik.handleSubmit} />
+			<ButtonStyled title="Aceptar" onPress={() => formik.handleSubmit()} />
 		</View>
 	);
 };

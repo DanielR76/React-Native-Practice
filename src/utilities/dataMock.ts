@@ -1,9 +1,9 @@
-export const user = {
-	username: "daniel",
-	password: "123",
+export const user: UserDataType = {
+	user: "daniel",
+	pass: "123",
 };
 
-export const userDetal = {
+export const userDetail: UserDetailType = {
 	username: "daniel",
 	firstname: "Daniel",
 	lasname: "Rodriguez",

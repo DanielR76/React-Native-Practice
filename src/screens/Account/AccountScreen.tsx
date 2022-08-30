@@ -7,6 +7,7 @@ import { ScreenNames } from "../../utilities/consts";
 
 export function AccountScreen() {
 	const navigation = useNavigation<NativeStackNavigationProp<any>>();
+	
 	const goToSettingScreen = (): void =>
 		navigation.navigate(ScreenNames.Favorite);
 
