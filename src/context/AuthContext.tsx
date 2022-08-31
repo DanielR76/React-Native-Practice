@@ -1,25 +1,31 @@
-import { createContext, useState } from "react";
+import { createContext, useReducer } from "react";
+import { reducer } from "./AuthReducer";
 
 type Props = {
-	userAuth: UserDetailType;
-	setUser?: (str: UserDetailType) => void;
+	authState: UserDetailType;
+	setAuthState?: React.Dispatch<any>;
+};
+
+const initialState = {
+	username: "",
+	firstname: "",
+	lasname: "",
+	email: "",
 };
 
 const initState: Props = {
-	userAuth: { username: "", firstname: "", lasname: "", email: "" },
-	setUser: () => {},
+	authState: { ...initialState },
+	setAuthState: () => {},
 };
 
 export const AuthContext = createContext(initState);
 
 export const ContextProvider = ({ children }) => {
-	const [auth, setAuth] = useState(initState.userAuth);
-
-	const setUser = (value: UserDetailType) => setAuth(value);
+	const [state, dispatch] = useReducer(reducer, initialState);
 
 	const data: Props = {
-		userAuth: auth,
-		setUser,
+		authState: state,
+		setAuthState: dispatch,
 	};
 
 	return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;

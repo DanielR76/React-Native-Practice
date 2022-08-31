@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import { userCredentials, userDetail } from "../../../../utilities";
-import { useAuth } from "../../../../hooks";
+import { setAuthDispatch } from "../../../../hooks";
 import { TitleStyled, UserInputStyled, ButtonStyled } from "./Loginform.styled";
 
 const initialValues: UserDataType = {
@@ -13,7 +13,7 @@ const initialValues: UserDataType = {
 };
 
 export const Loginform: FC = () => {
-	const { setUser } = useAuth();
+	const { setUserDispatch } = setAuthDispatch();
 
 	const validationSchema = Yup.object({
 		user: Yup.string().required("El usuario es requerido"),
@@ -26,7 +26,7 @@ export const Loginform: FC = () => {
 		validateOnChange: false,
 		onSubmit: ({ pass, user }) => {
 			if (pass === userCredentials.pass && user === userCredentials.user)
-				setUser(userDetail);
+				setUserDispatch(userDetail);
 		},
 	});
 
