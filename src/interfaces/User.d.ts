@@ -6,6 +6,6 @@ type UserDataType = {
 type UserDetailType = {
 	username: string;
 	firstname: string;
-	lasname: string;
+	lastname: string;
 	email: string;
 };

@@ -9,7 +9,7 @@ type Props = {
 const initialState = {
 	username: "",
 	firstname: "",
-	lasname: "",
+	lastname: "",
 	email: "",
 };
 
