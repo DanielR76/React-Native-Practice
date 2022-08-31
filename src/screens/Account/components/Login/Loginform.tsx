@@ -3,7 +3,8 @@ import { View, Text } from "react-native";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-import { user, userDetail } from "../../../../utilities";
+import { userCredentials, userDetail } from "../../../../utilities";
+import { useAuth } from "../../../../hooks";
 import { TitleStyled, UserInputStyled, ButtonStyled } from "./Loginform.styled";
 
 const initialValues: UserDataType = {
@@ -12,19 +13,20 @@ const initialValues: UserDataType = {
 };
 
 export const Loginform: FC = () => {
-	const validationYup = {
-		username: Yup.string().required("El usuario es requerido"),
-		password: Yup.string().required("La constraseña es requerida"),
-	};
+	const { setUser } = useAuth();
+
+	const validationSchema = Yup.object({
+		user: Yup.string().required("El usuario es requerido"),
+		pass: Yup.string().required("La constraseña es requerida"),
+	});
 
 	const formik = useFormik({
 		initialValues,
-		validationSchema: Yup.object(validationYup),
+		validationSchema,
 		validateOnChange: false,
-		onSubmit: ({pass, user}) => {
-			console.log(pass, 'pass')
-			console.log(user, 'user')
-			// console.log("clicked here");
+		onSubmit: ({ pass, user }) => {
+			if (pass === userCredentials.pass && user === userCredentials.user)
+				setUser(userDetail);
 		},
 	});
 

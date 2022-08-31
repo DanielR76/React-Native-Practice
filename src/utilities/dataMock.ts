@@ -1,4 +1,4 @@
-export const user: UserDataType = {
+export const userCredentials: UserDataType = {
 	user: "daniel",
 	pass: "123",
 };

@@ -1,23 +1,14 @@
-import { SafeAreaView, Text, Button } from "react-native";
-import { useNavigation } from "@react-navigation/core";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { SafeAreaView } from "react-native";
 
 import { UserData, Loginform } from "./components";
-import { ScreenNames } from "../../utilities/consts";
+import { useAuth } from "../../hooks";
 
 export function AccountScreen() {
-	const navigation = useNavigation<NativeStackNavigationProp<any>>();
-	
-	const goToSettingScreen = (): void =>
-		navigation.navigate(ScreenNames.Favorite);
-
-	const user = null;
+	const { userAuth } = useAuth();
 
 	return (
 		<SafeAreaView>
-			{user ? <UserData /> : <Loginform />}
-
-			{/* <Button onPress={goToSettingScreen} title="Go to Favorites" /> */}
+			{userAuth.username ? <UserData /> : <Loginform />}
 		</SafeAreaView>
 	);
 }

@@ -1,24 +1,24 @@
 import { createContext, useState } from "react";
 
 type Props = {
-	user: string;
-	setUser: (str: string) => void;
+	userAuth: UserDetailType;
+	setUser?: (str: UserDetailType) => void;
 };
 
 const initState: Props = {
-	user: "",
+	userAuth: { username: "", firstname: "", lasname: "", email: "" },
 	setUser: () => {},
 };
 
 export const AuthContext = createContext(initState);
 
 export const ContextProvider = ({ children }) => {
-	const [auth, setAuth] = useState(null);
+	const [auth, setAuth] = useState(initState.userAuth);
 
-	const setUser = (value: string) => setAuth(value);
+	const setUser = (value: UserDetailType) => setAuth(value);
 
-	const data = {
-		user: auth,
+	const data: Props = {
+		userAuth: auth,
 		setUser,
 	};
 
