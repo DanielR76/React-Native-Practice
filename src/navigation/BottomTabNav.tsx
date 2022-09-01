@@ -3,7 +3,7 @@ import { Image } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
 import { FavoriteStackNav, PokedexStackNav, AccountStackNav } from "./stacks";
-import { ScreenNames } from "../utilities/consts";
+import { ScreenNames } from "@utilities";
 
 const BottomTab = createBottomTabNavigator();
 

@@ -1,7 +1,7 @@
 import { SafeAreaView } from "react-native";
 
 import { UserData, Loginform } from "./components";
-import { useAuth } from "../../hooks";
+import { useAuth } from "@hooks";
 
 export function AccountScreen() {
 	const {

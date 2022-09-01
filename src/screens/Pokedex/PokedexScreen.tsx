@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native";
 
-import { PokeList } from "../../components";
+import { PokeList } from "@components";
 import PokemonsRequest from "../../apis/getPokemons";
 
 type InitData = {

@@ -1,7 +1,8 @@
 import { View, Text, Button } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { ScreenNames } from "../../utilities/consts";
+
+import { ScreenNames } from "@utilities";
 
 export function FavoriteScreen() {
 	const navigation = useNavigation<NativeStackNavigationProp<any>>();

@@ -3,8 +3,8 @@ import { View, Text } from "react-native";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-import { userCredentials, userDetail } from "../../../../utilities";
-import { useAuth } from "../../../../hooks";
+import { userCredentials, userDetail } from "@utilities";
+import { useAuth } from "@hooks";
 import { TitleStyled, UserInputStyled, ButtonStyled } from "./Loginform.styled";
 
 const initialValues: UserDataType = {

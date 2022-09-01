@@ -11,10 +11,10 @@ module.exports = function (api) {
 					alias: {
 						"@apis": "./src/apis",
 						"@components": "./src/components",
-						"@context": "./src/context",
+						"@store": "./src/context",
 						"@hooks": "./src/hooks",
 						"@navigation": "./src/navigation",
-						"@screen": "./src/screen",
+						"@screens": "./src/screens",
 						"@utilities": "./src/utilities",
 					},
 				},

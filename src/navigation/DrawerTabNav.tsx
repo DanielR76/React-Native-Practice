@@ -1,7 +1,7 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import { AccountScreen, FavoriteScreen, PokedexScreen } from "../screens";
-import { ScreenNames } from "../utilities/consts";
+import { ScreenNames } from "@utilities";
 
 const Drawer = createDrawerNavigator();
 

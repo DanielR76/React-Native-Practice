@@ -1,7 +1,7 @@
 import { createStackNavigator } from "@react-navigation/stack";
 
 import { FavoriteScreen } from "../../screens";
-import { ScreenNames } from "../../utilities/consts";
+import { ScreenNames } from "@utilities";
 
 const Stack = createStackNavigator();
 

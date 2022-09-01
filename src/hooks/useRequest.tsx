@@ -1,4 +1,4 @@
-import { BaseUrlApi } from "../utilities/consts";
+import { BaseUrlApi } from "@utilities";
 
 export const useRequest = () => {
 	const getService = async (path: string) => {

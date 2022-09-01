@@ -6,6 +6,6 @@ export const userCredentials: UserDataType = {
 export const userDetail: UserDetailType = {
 	username: "daniel",
 	firstname: "Daniel",
-	lasname: "Rodriguez",
+	lastname: "Rodriguez",
 	email: "daniel@email.com",
 };
