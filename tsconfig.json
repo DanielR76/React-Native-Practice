@@ -1,18 +1,28 @@
 {
-  "compilerOptions": {
-    "target": "ESNEXT",
-    "module": "ESNext",
-    "allowJs": true,
-    "jsx": "react-jsx",
-    "noEmit": true,
-    "isolatedModules": true,
-    "strict": false,
-    "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  },
-  "extends": "expo/tsconfig.base"
+	"compilerOptions": {
+		"target": "ESNEXT",
+		"baseUrl": ".",
+		"paths": {
+			"@apis": ["src/apis"],
+			"@components": ["src/components"],
+			"@context": ["src/context"],
+			"@hooks": ["src/hooks"],
+			"@navigation": ["src/navigation"],
+			"@screen": ["src/screen"],
+			"@utilities": ["src/utilities"]
+		},
+		"module": "ESNext",
+		"allowJs": true,
+		"jsx": "react-jsx",
+		"noEmit": true,
+		"isolatedModules": true,
+		"strict": false,
+		"noFallthroughCasesInSwitch": true,
+		"moduleResolution": "node",
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true
+	},
+	"extends": "expo/tsconfig.base"
 }
