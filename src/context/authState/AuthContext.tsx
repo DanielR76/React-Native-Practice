@@ -1,16 +1,9 @@
 import { createContext, useReducer } from "react";
-import { reducer } from "./AuthReducer";
+import { initialState, reducer } from "./AuthReducer";
 
 type Props = {
 	authState: UserDetailType;
-	setAuthState?: React.Dispatch<any>;
-};
-
-const initialState = {
-	username: "",
-	firstname: "",
-	lastname: "",
-	email: "",
+	setAuthState?: React.Dispatch<ContextType>;
 };
 
 const initState: Props = {

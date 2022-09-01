@@ -1,4 +1,4 @@
 type ContextType = {
-	type: string;
+	type: "SET_USER" | "RESET_USER";
 	payload: T;
 };

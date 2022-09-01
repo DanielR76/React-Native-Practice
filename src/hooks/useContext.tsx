@@ -1,10 +1,20 @@
 import { useContext } from "react";
-import { AuthContext, setUser } from "../context";
+import { AuthContext } from "../context";
 
 export const useAuth = () => {
 	const { authState, setAuthState } = useContext(AuthContext);
 
-	const setUserDispatch = (payload) => setAuthState(setUser(payload));
+	const setUserDispatch = (payload: any) =>
+		setAuthState({
+			type: "SET_USER",
+			payload,
+		});
 
-	return { authState, setUserDispatch };
+	const resetUserDispatch = () =>
+		setAuthState({
+			type: "RESET_USER",
+			payload: null,
+		});
+
+	return { authState, setUserDispatch, resetUserDispatch };
 };
