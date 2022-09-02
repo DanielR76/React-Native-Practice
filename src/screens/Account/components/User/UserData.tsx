@@ -1,8 +1,15 @@
-import { View, Text, Button } from "react-native";
+import { Button, View } from "react-native";
 import { useAuth } from "@hooks";
 import { memo } from "react";
 
-import { ContainerStyled } from "./UserData.styled";
+import {
+	ContainerStyled,
+	InfoKeyStyled,
+	InfoValueStyled,
+	TittleContStyled,
+	UserInfoStyled,
+	WelcomeTxtStyled,
+} from "./UserData.styled";
 
 export const UserData = () => {
 	const { authState, resetUserDispatch } = useAuth();
@@ -10,22 +17,26 @@ export const UserData = () => {
 
 	return (
 		<ContainerStyled>
-			<View>
-				<Text>Nombre</Text>
-				<Text>{firstname + " " + lastname}</Text>
-			</View>
-			<View>
-				<Text>Usuario</Text>
-				<Text>{username}</Text>
-			</View>
-			<View>
-				<Text>Correo</Text>
-				<Text>{email}</Text>
-			</View>
-			<View>
-				<Text>Total Favoritos</Text>
-				<Text>0</Text>
-			</View>
+			<TittleContStyled>
+				<WelcomeTxtStyled>Bienvenido,</WelcomeTxtStyled>
+				<WelcomeTxtStyled>{firstname}</WelcomeTxtStyled>
+			</TittleContStyled>
+			<UserInfoStyled>
+				<InfoKeyStyled>Nombre:</InfoKeyStyled>
+				<InfoValueStyled>{firstname + " " + lastname}</InfoValueStyled>
+			</UserInfoStyled>
+			<UserInfoStyled>
+				<InfoKeyStyled>Usuario:</InfoKeyStyled>
+				<InfoValueStyled>{username}</InfoValueStyled>
+			</UserInfoStyled>
+			<UserInfoStyled>
+				<InfoKeyStyled>Correo:</InfoKeyStyled>
+				<InfoValueStyled>{email}</InfoValueStyled>
+			</UserInfoStyled>
+			<UserInfoStyled>
+				<InfoKeyStyled>Favoritos:</InfoKeyStyled>
+				<InfoValueStyled>0</InfoValueStyled>
+			</UserInfoStyled>
 			<Button title="Cerrar sesion" onPress={resetUserDispatch} />
 		</ContainerStyled>
 	);
