@@ -28,7 +28,7 @@ export function PokedexScreen() {
 		PokemonsRequest()
 			.getPokemons(counter)
 			.then((resp) => {
-				if (resp) {
+				if (resp?.count) {
 					setListOfPokemons({
 						...listOfPokemons,
 						data: resp,

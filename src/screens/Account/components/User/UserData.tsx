@@ -1,4 +1,4 @@
-import { Button, View } from "react-native";
+import { Button } from "react-native";
 import { useAuth } from "@hooks";
 import { memo } from "react";
 
@@ -21,22 +21,27 @@ export const UserData = () => {
 				<WelcomeTxtStyled>Bienvenido,</WelcomeTxtStyled>
 				<WelcomeTxtStyled>{firstname}</WelcomeTxtStyled>
 			</TittleContStyled>
+
 			<UserInfoStyled>
 				<InfoKeyStyled>Nombre:</InfoKeyStyled>
 				<InfoValueStyled>{firstname + " " + lastname}</InfoValueStyled>
 			</UserInfoStyled>
+
 			<UserInfoStyled>
 				<InfoKeyStyled>Usuario:</InfoKeyStyled>
 				<InfoValueStyled>{username}</InfoValueStyled>
 			</UserInfoStyled>
+
 			<UserInfoStyled>
 				<InfoKeyStyled>Correo:</InfoKeyStyled>
 				<InfoValueStyled>{email}</InfoValueStyled>
 			</UserInfoStyled>
+
 			<UserInfoStyled>
 				<InfoKeyStyled>Favoritos:</InfoKeyStyled>
 				<InfoValueStyled>0</InfoValueStyled>
 			</UserInfoStyled>
+
 			<Button title="Cerrar sesion" onPress={resetUserDispatch} />
 		</ContainerStyled>
 	);

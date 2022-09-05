@@ -2,6 +2,10 @@ export enum BaseUrlApi {
 	Url = "https://pokeapi.co/api/v2",
 }
 
+export enum Storage {
+	Favorites = "Favorites",
+}
+
 export enum ScreenNames {
 	Account = "Account",
 	Profile = "Profile",
