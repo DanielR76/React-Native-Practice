@@ -10,8 +10,7 @@ import {
 	NumberStyled,
 	ImageStyled,
 } from "./Card.styled";
-import { getColorPokemon } from "../../utilities/convertFunctions";
-import { ScreenNames } from "../../utilities/consts";
+import { getColorPokemon, ScreenNames } from "@utilities";
 
 interface Props {
 	pokemon: PokeData;

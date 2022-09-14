@@ -8,7 +8,11 @@ import Icon from "react-native-vector-icons/FontAwesome5";
 import { HeaderPokemon, ItemPokemon, StatsPokemon } from "./components";
 import PokemonsRequest from "../../apis/getPokemons";
 import { useAuth } from "@hooks";
-import { setPokemonStorage } from "@utilities";
+import {
+	setPokemonStorage,
+	removePokemonStorage,
+	existPokemonStorage,
+} from "@utilities";
 
 export function PokemonScreen() {
 	const navigation = useNavigation<NativeStackNavigationProp<any>>();
@@ -19,6 +23,7 @@ export function PokemonScreen() {
 	} = useAuth();
 
 	const [pokemon, setPokemon] = useState(null);
+	const [isFavorite, setIsFavorite] = useState(false);
 
 	useEffect(() => {
 		navigation.setOptions({
@@ -26,10 +31,11 @@ export function PokemonScreen() {
 				username ? (
 					<Icon
 						name="heart"
+						solid={isFavorite}
 						color="#fff"
 						size={20}
 						style={{ marginRight: 20 }}
-						onPress={() => setPokemonStorage(params?.id)}
+						onPress={() => manageFav()}
 					/>
 				) : null,
 			headerLeft: () => (
@@ -42,13 +48,30 @@ export function PokemonScreen() {
 				/>
 			),
 		});
-	}, [navigation, params]);
+	}, [navigation, params, username, isFavorite]);
 
 	useEffect(() => {
 		getPokemonById(params?.id)
-			.then((response) => response.name && setPokemon(response))
+			.then((response) => {
+				if (response?.name) {
+					setPokemon(response);
+					validateFavorite();
+				}
+			})
 			.catch(console.log);
 	}, []);
+
+	const manageFav = () => {
+		!isFavorite
+			? setPokemonStorage(params?.id)
+			: removePokemonStorage(params?.id);
+		setIsFavorite(!isFavorite);
+	};
+
+	const validateFavorite = async () => {
+		const result = await existPokemonStorage(params?.id);
+		setIsFavorite(result);
+	};
 
 	if (!pokemon) return null;
 

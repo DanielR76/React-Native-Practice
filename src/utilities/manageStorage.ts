@@ -21,3 +21,22 @@ export const setPokemonStorage = async (val: number) => {
 		throw e;
 	}
 };
+
+export const removePokemonStorage = async (val: number) => {
+	try {
+		const jsonValue = await getPokemonStorage();
+		const newVal = jsonValue.filter((rem) => rem !== val);
+		await AsyncStorage.setItem(Storage.Favorites, JSON.stringify(newVal));
+	} catch (e) {
+		throw e;
+	}
+};
+
+export const existPokemonStorage = async (val: number) => {
+	try {
+		const jsonValue = await getPokemonStorage();
+		return jsonValue.includes(val);
+	} catch (e) {
+		throw e;
+	}
+};

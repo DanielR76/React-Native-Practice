@@ -1,23 +1,29 @@
-import { View, Text, Button } from "react-native";
-import { useNavigation } from "@react-navigation/core";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { useCallback } from "react";
+import { SafeAreaView } from "react-native";
+import { useFocusEffect } from "@react-navigation/core";
 
-import { getPokemonStorage, ScreenNames } from "@utilities";
+import { getPokemonStorage } from "@utilities";
+import { PokeList } from "@components";
+import { usePokeList } from "@hooks";
 
 export function FavoriteScreen() {
-	const navigation = useNavigation<NativeStackNavigationProp<any>>();
-	const goToHomeScreen = (): void => navigation.navigate(ScreenNames.Account);
+	const { listOfPokemonsById, requestPokemonById } = usePokeList();
 
-	const getPokemos = async () => {
+	useFocusEffect(
+		useCallback(() => {
+			requestPokemons();
+		}, [])
+	);
+
+	const requestPokemons = async () => {
 		const temp = await getPokemonStorage();
-		console.log(temp);
+		requestPokemonById(temp);
 	};
 
 	return (
-		<View>
-			<Text>Setting</Text>
-			<Button onPress={() => getPokemos()} title="Get pokemos" />
-		</View>
+		<SafeAreaView>
+			<PokeList pokemons={listOfPokemonsById} />
+		</SafeAreaView>
 	);
 }
 
