@@ -3,10 +3,10 @@ import { memo, FC } from "react";
 
 import { PokemonCard } from "../pokemonCard/PokemonCard";
 
-interface Props {
+type Props = {
 	pokemons: PokeData[];
 	getPokemons?: () => void;
-}
+};
 
 export const PokeList: FC<Props> = ({ pokemons, getPokemons }) => {
 	const getPokemonRequest = () => {

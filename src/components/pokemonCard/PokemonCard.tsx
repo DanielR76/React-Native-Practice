@@ -12,9 +12,9 @@ import {
 } from "./Card.styled";
 import { getColorPokemon, ScreenNames } from "@utilities";
 
-interface Props {
+type Props = {
 	pokemon: PokeData;
-}
+};
 
 export const PokemonCard: FC<Props> = ({ pokemon }) => {
 	const navigation = useNavigation<NativeStackNavigationProp<any>>();

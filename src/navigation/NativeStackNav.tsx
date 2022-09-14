@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import { AccountScreen, FavoriteScreen, PokedexScreen } from "../screens";
+import { AccountScreen, FavoriteScreen, PokedexScreen } from "@screens";
 import { ScreenNames } from "@utilities";
 
 const Stack = createNativeStackNavigator();
