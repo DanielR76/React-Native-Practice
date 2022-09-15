@@ -5,7 +5,8 @@ import * as Yup from "yup";
 
 import { userCredentials, userDetail } from "@utilities";
 import { useAuth } from "@hooks";
-import { TitleStyled, UserInputStyled, ButtonStyled } from "./Loginform.styled";
+import { TitleStyled, UserInputStyled } from "./Loginform.styled";
+import { Button } from "@components";
 
 const initialValues: UserDataType = {
 	user: "",
@@ -48,7 +49,7 @@ export const Loginform: FC = () => {
 				onChangeText={(text) => formik.setFieldValue("pass", text)}
 			/>
 			<Text>{formik.errors.pass}</Text>
-			<ButtonStyled title="Aceptar" onPress={() => formik.handleSubmit()} />
+			<Button onPress={formik.handleSubmit} />
 		</View>
 	);
 };

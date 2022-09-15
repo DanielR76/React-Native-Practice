@@ -6,7 +6,7 @@ type Props = {
 	onPress: () => void;
 };
 
-export const Button: FC<Props> = ({ text = "Aceptar", onPress }) => {
+export const Button: FC<Props> = ({ text = "Accept", onPress }) => {
 	return (
 		<ButtonStyled onPress={onPress} activeOpacity={0.5}>
 			<TextBtnStyled>{text}</TextBtnStyled>

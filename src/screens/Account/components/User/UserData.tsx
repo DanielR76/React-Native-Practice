@@ -1,7 +1,7 @@
-import { Button } from "react-native";
 import { useAuth } from "@hooks";
 import { memo } from "react";
 
+import { Button } from "@components";
 import {
 	ContainerStyled,
 	InfoKeyStyled,
@@ -42,7 +42,7 @@ export const UserData = () => {
 				<InfoValueStyled>0</InfoValueStyled>
 			</UserInfoStyled>
 
-			<Button title="Cerrar sesion" onPress={resetUserDispatch} />
+			<Button text="Logout" onPress={resetUserDispatch} />
 		</ContainerStyled>
 	);
 };

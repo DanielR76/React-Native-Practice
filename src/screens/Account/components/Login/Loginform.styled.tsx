@@ -14,11 +14,3 @@ export const UserInputStyled = styled.TextInput`
 	border-width: 1px;
 	border-radius: 5px;
 `;
-
-export const ButtonStyled = styled.Button`
-	height: 70px;
-	width: 70%;
-	max-width: 100px;
-	margin: 12px;
-	border-radius: 10px;
-`;

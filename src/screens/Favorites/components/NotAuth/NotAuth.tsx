@@ -1,12 +1,11 @@
-import { Text, TouchableOpacity } from "react-native";
 import { memo } from "react";
 import { useNavigation } from "@react-navigation/core";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
-import { ContentStyled, TextStyled } from "./NotAuth.styled";
 import { ScreenNames } from "@utilities";
 import { Button } from "@components";
+import { ContentStyled, TextStyled } from "./NotAuth.styled";
 
 export const NotAuth = () => {
 	const navigation = useNavigation<NativeStackNavigationProp<any>>();
