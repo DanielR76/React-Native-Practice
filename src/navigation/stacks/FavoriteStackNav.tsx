@@ -11,7 +11,7 @@ export function FavoriteStackNav() {
 			<Stack.Screen
 				name={ScreenNames.FavoriteList}
 				component={FavoriteScreen}
-				options={{ title: "Favoritos" }}
+				options={{ title: "Favorites" }}
 			/>
 			<Stack.Screen
 				name={ScreenNames.Pokemon}

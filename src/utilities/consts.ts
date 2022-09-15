@@ -9,7 +9,7 @@ export enum Storage {
 export enum ScreenNames {
 	Account = "Account",
 	Profile = "Profile",
-	Favorite = "Favorite",
+	Favorite = "Favorites",
 	FavoriteList = "FavoriteList",
 	Pokedex = "Pokedex",
 	Pokemon = "Pokemon",

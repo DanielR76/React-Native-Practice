@@ -10,14 +10,13 @@ const BottomTab = createBottomTabNavigator();
 export function BottomTabNav() {
 	return (
 		<BottomTab.Navigator
-			initialRouteName={ScreenNames.Favorite}
+			initialRouteName={ScreenNames.Pokedex}
 			screenOptions={{ headerShown: false, tabBarHideOnKeyboard: true }}
 		>
 			<BottomTab.Screen
 				name={ScreenNames.Favorite}
 				component={FavoriteStackNav}
 				options={{
-					tabBarLabel: "Favoritos",
 					tabBarIcon: ({ color, size }) => (
 						<Icon name="heart" color={color} size={size} />
 					),
@@ -40,7 +39,6 @@ export function BottomTabNav() {
 				name={ScreenNames.Account}
 				component={AccountStackNav}
 				options={{
-					tabBarLabel: "Cuenta",
 					tabBarIcon: ({ color, size }) => (
 						<Icon name="user" color={color} size={size} />
 					),

@@ -8,11 +8,7 @@ const Stack = createStackNavigator();
 export function AccountStackNav() {
 	return (
 		<Stack.Navigator>
-			<Stack.Screen
-				name={ScreenNames.Profile}
-				component={AccountScreen}
-				options={{ title: "Perfil" }}
-			/>
+			<Stack.Screen name={ScreenNames.Profile} component={AccountScreen} />
 		</Stack.Navigator>
 	);
 }
