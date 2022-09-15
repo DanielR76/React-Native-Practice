@@ -13,7 +13,7 @@ export const NotAuth = () => {
 
 	return (
 		<ContentStyled>
-			<Icon name="grin-beam-sweat" color="#7c3b2a" size={150} />
+			<Icon name="grin-beam-sweat" color="#f66" size={100} />
 			<TextStyled>Ops.., you're not logged</TextStyled>
 			<Button text="Press here to login" onPress={goToAuth} />
 		</ContentStyled>

@@ -1,11 +1,20 @@
 import styled from "styled-components/native";
 
 export const ContainerStyled = styled.SafeAreaView`
-	margin: 5px;
+	flex-direction: column;
+	justify-content: center;
+	padding: 30px 15px;
+`;
+
+export const ContentIconStyled = styled.View`
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 15px;
 `;
 
 export const TittleContStyled = styled.View`
-	margin-bottom: 15px;
+	margin: 0 0 0 15px;
 	padding: 10px;
 `;
 
@@ -34,4 +43,8 @@ export const InfoValueStyled = styled(InfoKeyStyled)`
 	width: 70%;
 	font-weight: 400;
 	color: #686363;
+`;
+
+export const ContBtnStyled = styled(ContentIconStyled)`
+	margin-top: 25px;
 `;

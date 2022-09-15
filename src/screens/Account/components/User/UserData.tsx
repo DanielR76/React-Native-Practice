@@ -1,10 +1,14 @@
 import { memo, useState, useCallback } from "react";
+import { ScrollView, SafeAreaView } from "react-native";
 import { useFocusEffect } from "@react-navigation/core";
+import Icon from "react-native-vector-icons/FontAwesome5";
 
 import { Button } from "@components";
 import { useAuth } from "@hooks";
 import {
 	ContainerStyled,
+	ContBtnStyled,
+	ContentIconStyled,
 	InfoKeyStyled,
 	InfoValueStyled,
 	TittleContStyled,
@@ -33,34 +37,43 @@ export const UserData = () => {
 	);
 
 	return (
-		<ContainerStyled>
-			<TittleContStyled>
-				<WelcomeTxtStyled>Bienvenido,</WelcomeTxtStyled>
-				<WelcomeTxtStyled>{firstname}</WelcomeTxtStyled>
-			</TittleContStyled>
+		<SafeAreaView>
+			<ScrollView>
+				<ContainerStyled>
+					<ContentIconStyled>
+						<Icon name="user-check" color="#f66" size={50} />
+						<TittleContStyled>
+							<WelcomeTxtStyled>Bienvenido</WelcomeTxtStyled>
+							<WelcomeTxtStyled>{firstname}</WelcomeTxtStyled>
+						</TittleContStyled>
+					</ContentIconStyled>
 
-			<UserInfoStyled>
-				<InfoKeyStyled>Nombre:</InfoKeyStyled>
-				<InfoValueStyled>{firstname + " " + lastname}</InfoValueStyled>
-			</UserInfoStyled>
+					<UserInfoStyled>
+						<InfoKeyStyled>Nombre:</InfoKeyStyled>
+						<InfoValueStyled>{firstname + " " + lastname}</InfoValueStyled>
+					</UserInfoStyled>
 
-			<UserInfoStyled>
-				<InfoKeyStyled>Usuario:</InfoKeyStyled>
-				<InfoValueStyled>{username}</InfoValueStyled>
-			</UserInfoStyled>
+					<UserInfoStyled>
+						<InfoKeyStyled>Usuario:</InfoKeyStyled>
+						<InfoValueStyled>{username}</InfoValueStyled>
+					</UserInfoStyled>
 
-			<UserInfoStyled>
-				<InfoKeyStyled>Correo:</InfoKeyStyled>
-				<InfoValueStyled>{email}</InfoValueStyled>
-			</UserInfoStyled>
+					<UserInfoStyled>
+						<InfoKeyStyled>Correo:</InfoKeyStyled>
+						<InfoValueStyled>{email}</InfoValueStyled>
+					</UserInfoStyled>
 
-			<UserInfoStyled>
-				<InfoKeyStyled>Favoritos:</InfoKeyStyled>
-				<InfoValueStyled>{quantityFav}</InfoValueStyled>
-			</UserInfoStyled>
+					<UserInfoStyled>
+						<InfoKeyStyled>Favoritos:</InfoKeyStyled>
+						<InfoValueStyled>{quantityFav}</InfoValueStyled>
+					</UserInfoStyled>
 
-			<Button text="Logout" onPress={resetUserDispatch} />
-		</ContainerStyled>
+					<ContBtnStyled>
+						<Button text="Logout" onPress={resetUserDispatch} />
+					</ContBtnStyled>
+				</ContainerStyled>
+			</ScrollView>
+		</SafeAreaView>
 	);
 };
 

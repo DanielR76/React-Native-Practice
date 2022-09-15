@@ -8,17 +8,25 @@ import { ScreenNames } from "@utilities";
 const BottomTab = createBottomTabNavigator();
 
 export function BottomTabNav() {
+	const setColor = (focused: boolean, color: string) => {
+		return focused ? "#f66" : color;
+	};
+
 	return (
 		<BottomTab.Navigator
 			initialRouteName={ScreenNames.Pokedex}
-			screenOptions={{ headerShown: false, tabBarHideOnKeyboard: true }}
+			screenOptions={{
+				headerShown: false,
+				tabBarHideOnKeyboard: true,
+				tabBarShowLabel: false,
+			}}
 		>
 			<BottomTab.Screen
 				name={ScreenNames.Favorite}
 				component={FavoriteStackNav}
 				options={{
-					tabBarIcon: ({ color, size }) => (
-						<Icon name="heart" color={color} size={size} />
+					tabBarIcon: ({ focused, color, size }) => (
+						<Icon name="heart" color={setColor(focused, color)} size={size} />
 					),
 				}}
 			/>
@@ -39,8 +47,8 @@ export function BottomTabNav() {
 				name={ScreenNames.Account}
 				component={AccountStackNav}
 				options={{
-					tabBarIcon: ({ color, size }) => (
-						<Icon name="user" color={color} size={size} />
+					tabBarIcon: ({ focused, color, size }) => (
+						<Icon name="user" color={setColor(focused, color)} size={size} />
 					),
 				}}
 			/>
