@@ -1,5 +1,5 @@
 import { memo, FC, useState } from "react";
-import { Text, ScrollView, SafeAreaView } from "react-native";
+import { ScrollView, SafeAreaView } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import { useFormik } from "formik";
 import * as Yup from "yup";
