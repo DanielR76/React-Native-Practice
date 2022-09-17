@@ -43,28 +43,28 @@ export const UserData = () => {
 					<ContentIconStyled>
 						<Icon name="user-check" color="#f66" size={50} />
 						<TittleContStyled>
-							<WelcomeTxtStyled>Bienvenido</WelcomeTxtStyled>
+							<WelcomeTxtStyled>Welcome</WelcomeTxtStyled>
 							<WelcomeTxtStyled>{firstname}</WelcomeTxtStyled>
 						</TittleContStyled>
 					</ContentIconStyled>
 
 					<UserInfoStyled>
-						<InfoKeyStyled>Nombre:</InfoKeyStyled>
+						<InfoKeyStyled>Name:</InfoKeyStyled>
 						<InfoValueStyled>{firstname + " " + lastname}</InfoValueStyled>
 					</UserInfoStyled>
 
 					<UserInfoStyled>
-						<InfoKeyStyled>Usuario:</InfoKeyStyled>
+						<InfoKeyStyled>User:</InfoKeyStyled>
 						<InfoValueStyled>{username}</InfoValueStyled>
 					</UserInfoStyled>
 
 					<UserInfoStyled>
-						<InfoKeyStyled>Correo:</InfoKeyStyled>
+						<InfoKeyStyled>Email:</InfoKeyStyled>
 						<InfoValueStyled>{email}</InfoValueStyled>
 					</UserInfoStyled>
 
 					<UserInfoStyled>
-						<InfoKeyStyled>Favoritos:</InfoKeyStyled>
+						<InfoKeyStyled>Favorites:</InfoKeyStyled>
 						<InfoValueStyled>{quantityFav}</InfoValueStyled>
 					</UserInfoStyled>
 

@@ -5,7 +5,7 @@ import { useFocusEffect } from "@react-navigation/core";
 import { getPokemonStorage } from "@utilities";
 import { PokeList } from "@components";
 import { useAuth, usePokeList } from "@hooks";
-import { NotAuth } from "./components";
+import { NotAuth, NotList } from "./components";
 
 export function FavoriteScreen() {
 	const {
@@ -26,7 +26,15 @@ export function FavoriteScreen() {
 
 	return (
 		<SafeAreaView>
-			{username ? <PokeList pokemons={listOfPokemonsById} /> : <NotAuth />}
+			{username ? (
+				listOfPokemonsById.length > 0 ? (
+					<PokeList pokemons={listOfPokemonsById} />
+				) : (
+					<NotList />
+				)
+			) : (
+				<NotAuth />
+			)}
 		</SafeAreaView>
 	);
 }
